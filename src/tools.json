@@ -190,5 +190,50 @@
     "name": "Unit Converter",
     "category": "Utilities",
     "keywords": ["units", "length", "weight", "temperature", "currency"]
+  },
+  {
+    "id": "image-metadata",
+    "name": "Image Metadata Cleaner",
+    "category": "AI Tools",
+    "keywords": [
+      "exif",
+      "metadata",
+      "remove metadata",
+      "gps",
+      "c2pa",
+      "content credentials",
+      "ai generated",
+      "stable diffusion prompt",
+      "privacy",
+      "strip exif"
+    ]
+  },
+  {
+    "id": "secret-redactor",
+    "name": "Secret & PII Redactor",
+    "category": "AI Tools",
+    "keywords": ["redact", "secrets", "api key", "token", "password", "pii", "mask", "sanitize", "chatgpt", "privacy"]
+  },
+  {
+    "id": "token-counter",
+    "name": "Token Counter",
+    "category": "AI Tools",
+    "keywords": ["tokens", "tokenizer", "gpt", "openai", "o200k", "llm", "prompt", "cost", "context window", "claude"]
+  },
+  {
+    "id": "ai-text-cleaner",
+    "name": "AI Text Cleaner",
+    "category": "AI Tools",
+    "keywords": [
+      "clean text",
+      "invisible characters",
+      "zero width",
+      "smart quotes",
+      "em dash",
+      "citations",
+      "markdown",
+      "chatgpt",
+      "normalize"
+    ]
   }
 ]
