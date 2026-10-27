@@ -19,9 +19,40 @@
   },
   {
     "id": "json-typescript",
-    "name": "JSON to TypeScript",
+    "name": "JSON to Code",
     "category": "Development Tools",
-    "keywords": ["typescript", "ts", "interface", "types"]
+    "keywords": [
+      "typescript",
+      "ts",
+      "interface",
+      "types",
+      "go",
+      "golang",
+      "struct",
+      "rust",
+      "serde",
+      "python",
+      "dataclass",
+      "pydantic",
+      "swift",
+      "codable",
+      "kotlin",
+      "json schema",
+      "codegen",
+      "model"
+    ]
+  },
+  {
+    "id": "certificate-decoder",
+    "name": "X.509 Certificate Decoder",
+    "category": "Development Tools",
+    "keywords": ["x509", "certificate", "pem", "der", "ssl", "tls", "csr", "fingerprint", "chain", "san"]
+  },
+  {
+    "id": "html-preview",
+    "name": "HTML Preview",
+    "category": "Development Tools",
+    "keywords": ["html", "preview", "render", "live", "sandbox", "iframe", "responsive", "viewport"]
   },
   {
     "id": "code-formatter",
@@ -118,6 +149,24 @@
     "name": "Escape Tools",
     "category": "Converters",
     "keywords": ["escape", "unescape", "html entities", "backslash", "unicode", "hex"]
+  },
+  {
+    "id": "html-to-jsx",
+    "name": "HTML to JSX",
+    "category": "Converters",
+    "keywords": ["jsx", "react", "html", "convert", "classname", "component", "tsx", "markup"]
+  },
+  {
+    "id": "svg-to-css",
+    "name": "SVG to CSS",
+    "category": "Converters",
+    "keywords": ["svg", "css", "data uri", "base64", "background-image", "mask", "icon", "encode"]
+  },
+  {
+    "id": "curl-to-code",
+    "name": "cURL to Code",
+    "category": "Converters",
+    "keywords": ["curl", "fetch", "python requests", "go", "php", "reqwest", "httpie", "http request"]
   },
   {
     "id": "timestamp",
