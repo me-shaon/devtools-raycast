@@ -1,5 +1,16 @@
-import { Action, ActionPanel, Icon, Keyboard, List, closeMainWindow, showToast, Toast } from "@raycast/api";
+import {
+  Action,
+  ActionPanel,
+  Icon,
+  Keyboard,
+  LaunchProps,
+  List,
+  closeMainWindow,
+  showToast,
+  Toast,
+} from "@raycast/api";
 import { usePromise } from "@raycast/utils";
+import { useState } from "react";
 import { DOWNLOAD_URL, isDevToolsInstalled, openLink, searchLink, toolLink } from "./devtools";
 import { loadTools } from "./tools";
 
@@ -11,6 +22,7 @@ const CATEGORY_ICONS: Record<string, Icon> = {
   Media: Icon.Image,
   "Text Tools": Icon.Text,
   Utilities: Icon.Hammer,
+  "AI Tools": Icon.Stars,
 };
 
 async function launch(link: string) {
@@ -26,7 +38,9 @@ async function launch(link: string) {
   }
 }
 
-export default function SearchTools() {
+/** Also works as a Raycast fallback command: text typed in the root search becomes the search. */
+export default function SearchTools(props: LaunchProps) {
+  const [searchText, setSearchText] = useState(props.fallbackText ?? "");
   const { data: installed, isLoading: checkingInstall } = usePromise(isDevToolsInstalled);
   const { data, isLoading: loadingTools } = usePromise(loadTools);
   const tools = data?.tools ?? [];
@@ -50,7 +64,13 @@ export default function SearchTools() {
   }
 
   return (
-    <List isLoading={checkingInstall || loadingTools} searchBarPlaceholder="Search DevTools tools">
+    <List
+      isLoading={checkingInstall || loadingTools}
+      searchBarPlaceholder="Search DevTools tools"
+      searchText={searchText}
+      onSearchTextChange={setSearchText}
+      filtering={{ keepSectionOrder: true }}
+    >
       {categories.map((category) => (
         <List.Section key={category} title={category}>
           {tools

@@ -17,7 +17,8 @@ The extension reads that file. New tools in a DevTools update therefore appear i
 
 ## Commands
 
-- **Search Tools** lists every DevTools tool. Type a name, a category, or a keyword such as `sha`, `yml`, or `diff`. Press Enter to open the tool.
+- **One command per tool.** Type a tool's name in Raycast's root search, for example `json`, `sha`, or `token`, and press Enter to open it in DevTools. Each command shows "DevTools" as its subtitle.
+- **Search Tools** lists every DevTools tool. It also works as a Raycast fallback command: add it in Raycast Settings, then type any text in the root search and choose Search Tools to search with it. Type a name, a category, or a keyword such as `sha`, `yml`, or `diff`. Press Enter to open the tool.
   - Press ⌘⇧C to copy a link to the tool.
   - Press ⌘F to open the DevTools command palette with the tool name.
 - **Open DevTools** opens the app. Type a search to open the DevTools command palette with that text.
@@ -36,7 +37,7 @@ The extension opens these links. You can also use them from a terminal, Alfred, 
 
 1. Run `npm install`.
 2. Run `npm run dev` to load the extension in Raycast.
-3. Run `npm run sync-tools -- ../devtools` when tools change in the app. It copies the tool list and search keywords from the app's tool registry into `src/tools.json`.
+3. Run `npm run sync-tools -- ../devtools` when tools change in the app. It copies the tool list and search keywords from the app's tool registry into `src/tools.json`, and regenerates the per-tool commands in `package.json` and `src/tool-*.ts`.
 
 ## Publishing
 
