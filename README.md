@@ -1,0 +1,37 @@
+# DevTools for Raycast
+
+Search the tools in the [DevTools](https://github.com/me-shaon/devtools) desktop app and open one from Raycast.
+
+## Requirements
+
+- DevTools 2.1 or later, installed on this Mac. DevTools 2.1 adds the `devtoolsapp://` links that this extension uses.
+
+## Commands
+
+- **Search Tools** lists every DevTools tool. Type a name, a category, or a keyword such as `sha`, `yml`, or `diff`. Press Enter to open the tool.
+  - Press ⌘⇧C to copy a link to the tool.
+  - Press ⌘F to open the DevTools command palette with the tool name.
+- **Open DevTools** opens the app. Type a search to open the DevTools command palette with that text.
+
+## Links
+
+The extension opens these links. You can also use them from a terminal, Alfred, Shortcuts, or a browser.
+
+| Link | Result |
+|---|---|
+| `devtoolsapp://open/<tool-id>` | Opens a tool, for example `devtoolsapp://open/json-viewer`. |
+| `devtoolsapp://search?q=<text>` | Opens the command palette with the text. |
+| `devtoolsapp://home` | Shows the DevTools home page. |
+
+## Development
+
+1. Run `npm install`.
+2. Run `npm run dev` to load the extension in Raycast.
+3. Run `npm run sync-tools -- ../devtools` after tools change in the app. It copies the tool list from the app's tool registry into `src/tools.json`.
+4. Add search terms for a new tool in `src/keywords.ts`.
+
+## Publishing
+
+1. Set `author` in `package.json` to your Raycast username.
+2. Run `npm run lint` and `npm run build`.
+3. Run `npm run publish`. This opens a pull request to the `raycast/extensions` repository for review.

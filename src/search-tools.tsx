@@ -1,0 +1,87 @@
+import { Action, ActionPanel, Icon, Keyboard, List, closeMainWindow, showToast, Toast } from "@raycast/api";
+import { usePromise } from "@raycast/utils";
+import { DOWNLOAD_URL, isDevToolsInstalled, openLink, searchLink, toolLink } from "./devtools";
+import { KEYWORDS } from "./keywords";
+import tools from "./tools.json";
+
+const CATEGORY_ICONS: Record<string, Icon> = {
+  "Development Tools": Icon.Code,
+  Generators: Icon.Wand,
+  Converters: Icon.Switch,
+  "Time & Date": Icon.Clock,
+  Media: Icon.Image,
+  "Text Tools": Icon.Text,
+  Utilities: Icon.Hammer,
+};
+
+const categories = [...new Set(tools.map((tool) => tool.category))];
+
+async function launch(link: string) {
+  try {
+    await openLink(link);
+    await closeMainWindow();
+  } catch (error) {
+    await showToast({
+      style: Toast.Style.Failure,
+      title: "Could not open DevTools",
+      message: error instanceof Error ? error.message : String(error),
+    });
+  }
+}
+
+export default function SearchTools() {
+  const { data: installed, isLoading } = usePromise(isDevToolsInstalled);
+
+  if (installed === false) {
+    return (
+      <List>
+        <List.EmptyView
+          icon={Icon.Download}
+          title="DevTools is not installed"
+          description="Install DevTools 2.1 or later, then search again."
+          actions={
+            <ActionPanel>
+              <Action.OpenInBrowser title="Download DevTools" url={DOWNLOAD_URL} />
+            </ActionPanel>
+          }
+        />
+      </List>
+    );
+  }
+
+  return (
+    <List isLoading={isLoading} searchBarPlaceholder="Search DevTools tools">
+      {categories.map((category) => (
+        <List.Section key={category} title={category}>
+          {tools
+            .filter((tool) => tool.category === category)
+            .map((tool) => (
+              <List.Item
+                key={tool.id}
+                icon={CATEGORY_ICONS[tool.category] ?? Icon.AppWindow}
+                title={tool.name}
+                accessories={[{ text: tool.category }]}
+                keywords={[tool.category, ...(KEYWORDS[tool.id] ?? [])]}
+                actions={
+                  <ActionPanel>
+                    <Action title="Open in DevTools" icon={Icon.AppWindow} onAction={() => launch(toolLink(tool.id))} />
+                    <Action.CopyToClipboard
+                      title="Copy Link to Tool"
+                      content={toolLink(tool.id)}
+                      shortcut={Keyboard.Shortcut.Common.Copy}
+                    />
+                    <Action
+                      title="Search in DevTools"
+                      icon={Icon.MagnifyingGlass}
+                      shortcut={{ modifiers: ["cmd"], key: "f" }}
+                      onAction={() => launch(searchLink(tool.name))}
+                    />
+                  </ActionPanel>
+                }
+              />
+            ))}
+        </List.Section>
+      ))}
+    </List>
+  );
+}

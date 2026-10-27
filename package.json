@@ -1,0 +1,48 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "devtools",
+  "title": "DevTools",
+  "description": "Open any DevTools tool, such as JSON Viewer, Hash Generator, or JWT Decoder, straight from Raycast.",
+  "icon": "icon.png",
+  "author": "ahmed_shamim",
+  "categories": ["Developer Tools", "Productivity"],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "search-tools",
+      "title": "Search Tools",
+      "subtitle": "DevTools",
+      "description": "Search the DevTools app's tools by name and open one.",
+      "mode": "view"
+    },
+    {
+      "name": "open-devtools",
+      "title": "Open DevTools",
+      "description": "Open the DevTools app, or its command palette with a search.",
+      "mode": "no-view",
+      "arguments": [
+        { "name": "query", "placeholder": "Search (optional)", "type": "text", "required": false }
+      ]
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "2.7.3",
+    "@raycast/utils": "2.3.2"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "2.2.0",
+    "@types/node": "22.19.7",
+    "@types/react": "19.1.8",
+    "eslint": "9.32.0",
+    "prettier": "3.6.2",
+    "typescript": "5.8.3"
+  },
+  "scripts": {
+    "build": "ray build",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "sync-tools": "node scripts/sync-tools.mjs",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}

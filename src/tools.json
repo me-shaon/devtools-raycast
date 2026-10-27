@@ -1,0 +1,162 @@
+[
+  {
+    "id": "json-viewer",
+    "name": "JSON Viewer",
+    "category": "Development Tools"
+  },
+  {
+    "id": "code-playground",
+    "name": "Code Playground",
+    "category": "Development Tools"
+  },
+  {
+    "id": "regex-generator",
+    "name": "Regex Generator",
+    "category": "Development Tools"
+  },
+  {
+    "id": "json-typescript",
+    "name": "JSON to TypeScript",
+    "category": "Development Tools"
+  },
+  {
+    "id": "code-formatter",
+    "name": "Code Formatter",
+    "category": "Development Tools"
+  },
+  {
+    "id": "hash-generator",
+    "name": "Hash Generator",
+    "category": "Generators"
+  },
+  {
+    "id": "uuid-generator",
+    "name": "UUID Generator",
+    "category": "Generators"
+  },
+  {
+    "id": "password-generator",
+    "name": "Password Generator",
+    "category": "Generators"
+  },
+  {
+    "id": "lorem-generator",
+    "name": "Lorem Ipsum",
+    "category": "Generators"
+  },
+  {
+    "id": "qr-generator",
+    "name": "QR Generator",
+    "category": "Generators"
+  },
+  {
+    "id": "bcrypt-generator",
+    "name": "Bcrypt Generator",
+    "category": "Generators"
+  },
+  {
+    "id": "random-string",
+    "name": "Random String",
+    "category": "Generators"
+  },
+  {
+    "id": "base64",
+    "name": "Base64",
+    "category": "Converters"
+  },
+  {
+    "id": "case-converter",
+    "name": "Case Converter",
+    "category": "Converters"
+  },
+  {
+    "id": "number-base",
+    "name": "Number Base",
+    "category": "Converters"
+  },
+  {
+    "id": "markdown",
+    "name": "Markdown",
+    "category": "Converters"
+  },
+  {
+    "id": "url-encoder",
+    "name": "URL Encoder",
+    "category": "Converters"
+  },
+  {
+    "id": "csv-json",
+    "name": "CSV to JSON",
+    "category": "Converters"
+  },
+  {
+    "id": "yaml-json",
+    "name": "YAML to JSON",
+    "category": "Converters"
+  },
+  {
+    "id": "escape-tools",
+    "name": "Escape Tools",
+    "category": "Converters"
+  },
+  {
+    "id": "timestamp",
+    "name": "Timestamp",
+    "category": "Time & Date"
+  },
+  {
+    "id": "date-difference",
+    "name": "Date Difference",
+    "category": "Time & Date"
+  },
+  {
+    "id": "cron-calculator",
+    "name": "Cron Calculator",
+    "category": "Time & Date"
+  },
+  {
+    "id": "color-palette",
+    "name": "Color Palette",
+    "category": "Media"
+  },
+  {
+    "id": "image-converter",
+    "name": "Image Converter",
+    "category": "Media"
+  },
+  {
+    "id": "qr-reader",
+    "name": "QR Reader",
+    "category": "Media"
+  },
+  {
+    "id": "text-compare",
+    "name": "Text Compare",
+    "category": "Text Tools"
+  },
+  {
+    "id": "jwt-decoder",
+    "name": "JWT Decoder",
+    "category": "Text Tools"
+  },
+  {
+    "id": "api-formatter",
+    "name": "API Formatter",
+    "category": "Text Tools"
+  },
+  {
+    "id": "string-inspector",
+    "name": "String Inspector",
+    "category": "Text Tools"
+  },
+  {
+    "id": "line-tools",
+    "name": "Line Tools",
+    "category": "Text Tools"
+  },
+  {
+    "id": "unit-converter",
+    "name": "Unit Converter",
+    "category": "Utilities"
+  }
+]
