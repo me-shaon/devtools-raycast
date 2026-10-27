@@ -6,6 +6,15 @@ Search the tools in the [DevTools](https://github.com/me-shaon/devtools) desktop
 
 - DevTools 2.1 or later, installed on this Mac. DevTools 2.1 adds the `devtoolsapp://` links that this extension uses.
 
+## Where the tool list comes from
+
+DevTools 2.1 and later write their tool list to the app data folder each time they start:
+
+- macOS: `~/Library/Application Support/com.meshaon.devtoolsapp/tools.json`
+- Windows: `%APPDATA%\com.meshaon.devtoolsapp\tools.json`
+
+The extension reads that file. New tools in a DevTools update therefore appear in Raycast without an extension update, and the list always matches the installed version. When the file is missing, the extension uses the list bundled in `src/tools.json`.
+
 ## Commands
 
 - **Search Tools** lists every DevTools tool. Type a name, a category, or a keyword such as `sha`, `yml`, or `diff`. Press Enter to open the tool.
@@ -27,8 +36,7 @@ The extension opens these links. You can also use them from a terminal, Alfred, 
 
 1. Run `npm install`.
 2. Run `npm run dev` to load the extension in Raycast.
-3. Run `npm run sync-tools -- ../devtools` after tools change in the app. It copies the tool list from the app's tool registry into `src/tools.json`.
-4. Add search terms for a new tool in `src/keywords.ts`.
+3. Run `npm run sync-tools -- ../devtools` when tools change in the app. It copies the tool list and search keywords from the app's tool registry into `src/tools.json`.
 
 ## Publishing
 

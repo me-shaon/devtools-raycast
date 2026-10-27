@@ -1,8 +1,7 @@
 import { Action, ActionPanel, Icon, Keyboard, List, closeMainWindow, showToast, Toast } from "@raycast/api";
 import { usePromise } from "@raycast/utils";
 import { DOWNLOAD_URL, isDevToolsInstalled, openLink, searchLink, toolLink } from "./devtools";
-import { KEYWORDS } from "./keywords";
-import tools from "./tools.json";
+import { loadTools } from "./tools";
 
 const CATEGORY_ICONS: Record<string, Icon> = {
   "Development Tools": Icon.Code,
@@ -13,8 +12,6 @@ const CATEGORY_ICONS: Record<string, Icon> = {
   "Text Tools": Icon.Text,
   Utilities: Icon.Hammer,
 };
-
-const categories = [...new Set(tools.map((tool) => tool.category))];
 
 async function launch(link: string) {
   try {
@@ -30,7 +27,10 @@ async function launch(link: string) {
 }
 
 export default function SearchTools() {
-  const { data: installed, isLoading } = usePromise(isDevToolsInstalled);
+  const { data: installed, isLoading: checkingInstall } = usePromise(isDevToolsInstalled);
+  const { data, isLoading: loadingTools } = usePromise(loadTools);
+  const tools = data?.tools ?? [];
+  const categories = [...new Set(tools.map((tool) => tool.category))];
 
   if (installed === false) {
     return (
@@ -50,7 +50,7 @@ export default function SearchTools() {
   }
 
   return (
-    <List isLoading={isLoading} searchBarPlaceholder="Search DevTools tools">
+    <List isLoading={checkingInstall || loadingTools} searchBarPlaceholder="Search DevTools tools">
       {categories.map((category) => (
         <List.Section key={category} title={category}>
           {tools
@@ -61,7 +61,7 @@ export default function SearchTools() {
                 icon={CATEGORY_ICONS[tool.category] ?? Icon.AppWindow}
                 title={tool.name}
                 accessories={[{ text: tool.category }]}
-                keywords={[tool.category, ...(KEYWORDS[tool.id] ?? [])]}
+                keywords={[tool.category, ...tool.keywords]}
                 actions={
                   <ActionPanel>
                     <Action title="Open in DevTools" icon={Icon.AppWindow} onAction={() => launch(toolLink(tool.id))} />

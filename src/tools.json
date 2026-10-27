@@ -2,161 +2,193 @@
   {
     "id": "json-viewer",
     "name": "JSON Viewer",
-    "category": "Development Tools"
+    "category": "Development Tools",
+    "keywords": ["json", "format", "pretty", "minify", "validate", "jsonpath", "query"]
   },
   {
     "id": "code-playground",
     "name": "Code Playground",
-    "category": "Development Tools"
+    "category": "Development Tools",
+    "keywords": ["javascript", "js", "html", "css", "run", "editor"]
   },
   {
     "id": "regex-generator",
     "name": "Regex Generator",
-    "category": "Development Tools"
+    "category": "Development Tools",
+    "keywords": ["regex", "regexp", "pattern", "match"]
   },
   {
     "id": "json-typescript",
     "name": "JSON to TypeScript",
-    "category": "Development Tools"
+    "category": "Development Tools",
+    "keywords": ["typescript", "ts", "interface", "types"]
   },
   {
     "id": "code-formatter",
     "name": "Code Formatter",
-    "category": "Development Tools"
+    "category": "Development Tools",
+    "keywords": ["beautify", "prettify", "minify", "html", "css", "js", "xml", "sql"]
   },
   {
     "id": "hash-generator",
     "name": "Hash Generator",
-    "category": "Generators"
+    "category": "Generators",
+    "keywords": ["md5", "sha", "sha1", "sha256", "sha512", "hmac", "checksum", "keccak"]
   },
   {
     "id": "uuid-generator",
     "name": "UUID Generator",
-    "category": "Generators"
+    "category": "Generators",
+    "keywords": ["uuid", "guid", "ulid", "v4", "v7"]
   },
   {
     "id": "password-generator",
     "name": "Password Generator",
-    "category": "Generators"
+    "category": "Generators",
+    "keywords": ["password", "passphrase", "secure"]
   },
   {
     "id": "lorem-generator",
     "name": "Lorem Ipsum",
-    "category": "Generators"
+    "category": "Generators",
+    "keywords": ["lorem", "placeholder", "dummy text"]
   },
   {
     "id": "qr-generator",
     "name": "QR Generator",
-    "category": "Generators"
+    "category": "Generators",
+    "keywords": ["qr", "qrcode", "barcode"]
   },
   {
     "id": "bcrypt-generator",
     "name": "Bcrypt Generator",
-    "category": "Generators"
+    "category": "Generators",
+    "keywords": ["bcrypt", "hash", "password"]
   },
   {
     "id": "random-string",
     "name": "Random String",
-    "category": "Generators"
+    "category": "Generators",
+    "keywords": ["nanoid", "nano id", "token", "random", "id"]
   },
   {
     "id": "base64",
     "name": "Base64",
-    "category": "Converters"
+    "category": "Converters",
+    "keywords": ["b64", "encode", "decode", "data uri"]
   },
   {
     "id": "case-converter",
     "name": "Case Converter",
-    "category": "Converters"
+    "category": "Converters",
+    "keywords": ["camelcase", "snake_case", "kebab", "pascal", "upper", "lower"]
   },
   {
     "id": "number-base",
     "name": "Number Base",
-    "category": "Converters"
+    "category": "Converters",
+    "keywords": ["binary", "hex", "octal", "decimal", "radix"]
   },
   {
     "id": "markdown",
     "name": "Markdown",
-    "category": "Converters"
+    "category": "Converters",
+    "keywords": ["md", "preview", "html"]
   },
   {
     "id": "url-encoder",
     "name": "URL Encoder",
-    "category": "Converters"
+    "category": "Converters",
+    "keywords": ["url", "uri", "percent", "encode", "decode", "query string"]
   },
   {
     "id": "csv-json",
     "name": "CSV to JSON",
-    "category": "Converters"
+    "category": "Converters",
+    "keywords": ["csv", "tsv", "spreadsheet"]
   },
   {
     "id": "yaml-json",
     "name": "YAML to JSON",
-    "category": "Converters"
+    "category": "Converters",
+    "keywords": ["yaml", "yml"]
   },
   {
     "id": "escape-tools",
     "name": "Escape Tools",
-    "category": "Converters"
+    "category": "Converters",
+    "keywords": ["escape", "unescape", "html entities", "backslash", "unicode", "hex"]
   },
   {
     "id": "timestamp",
     "name": "Timestamp",
-    "category": "Time & Date"
+    "category": "Time & Date",
+    "keywords": ["unix", "epoch", "date", "time"]
   },
   {
     "id": "date-difference",
     "name": "Date Difference",
-    "category": "Time & Date"
+    "category": "Time & Date",
+    "keywords": ["days", "between", "duration"]
   },
   {
     "id": "cron-calculator",
     "name": "Cron Calculator",
-    "category": "Time & Date"
+    "category": "Time & Date",
+    "keywords": ["cron", "crontab", "schedule"]
   },
   {
     "id": "color-palette",
     "name": "Color Palette",
-    "category": "Media"
+    "category": "Media",
+    "keywords": ["color", "colour", "hex", "rgb", "hsl", "contrast", "wcag"]
   },
   {
     "id": "image-converter",
     "name": "Image Converter",
-    "category": "Media"
+    "category": "Media",
+    "keywords": ["image", "png", "jpg", "webp", "compress", "resize"]
   },
   {
     "id": "qr-reader",
     "name": "QR Reader",
-    "category": "Media"
+    "category": "Media",
+    "keywords": ["qr", "scan", "decode", "read"]
   },
   {
     "id": "text-compare",
     "name": "Text Compare",
-    "category": "Text Tools"
+    "category": "Text Tools",
+    "keywords": ["diff", "compare", "difference"]
   },
   {
     "id": "jwt-decoder",
     "name": "JWT Decoder",
-    "category": "Text Tools"
+    "category": "Text Tools",
+    "keywords": ["jwt", "token", "bearer", "decode", "verify"]
   },
   {
     "id": "api-formatter",
     "name": "API Formatter",
-    "category": "Text Tools"
+    "category": "Text Tools",
+    "keywords": ["api", "rest", "graphql", "response"]
   },
   {
     "id": "string-inspector",
     "name": "String Inspector",
-    "category": "Text Tools"
+    "category": "Text Tools",
+    "keywords": ["count", "characters", "words", "bytes", "unicode", "invisible", "zero width"]
   },
   {
     "id": "line-tools",
     "name": "Line Tools",
-    "category": "Text Tools"
+    "category": "Text Tools",
+    "keywords": ["sort", "dedupe", "unique", "lines", "shuffle", "reverse"]
   },
   {
     "id": "unit-converter",
     "name": "Unit Converter",
-    "category": "Utilities"
+    "category": "Utilities",
+    "keywords": ["units", "length", "weight", "temperature", "currency"]
   }
 ]
