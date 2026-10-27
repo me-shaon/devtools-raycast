@@ -14,17 +14,6 @@ import { useState } from "react";
 import { DOWNLOAD_URL, isDevToolsInstalled, openLink, searchLink, toolLink } from "./devtools";
 import { loadTools } from "./tools";
 
-const CATEGORY_ICONS: Record<string, Icon> = {
-  "Development Tools": Icon.Code,
-  Generators: Icon.Wand,
-  Converters: Icon.Switch,
-  "Time & Date": Icon.Clock,
-  Media: Icon.Image,
-  "Text Tools": Icon.Text,
-  Utilities: Icon.Hammer,
-  "AI Tools": Icon.Stars,
-};
-
 async function launch(link: string) {
   try {
     await openLink(link);
@@ -78,7 +67,7 @@ export default function SearchTools(props: LaunchProps) {
             .map((tool) => (
               <List.Item
                 key={tool.id}
-                icon={CATEGORY_ICONS[tool.category] ?? Icon.AppWindow}
+                icon={{ source: "icon.png" }}
                 title={tool.name}
                 accessories={[{ text: tool.category }]}
                 keywords={[tool.category, ...tool.keywords]}
