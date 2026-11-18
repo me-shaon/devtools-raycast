@@ -1,4 +1,4 @@
-// Syncs the extension with the DevTools app's tool registry:
+// Syncs the extension in extension/ with the DevTools app's tool registry:
 // - src/tools.json: the fallback list for Search Tools (used when the app has not written its own).
 // - One Raycast command per tool, so typing a tool name in Raycast's root search opens it.
 //   Each command is a small generated file src/tool-<id>.ts plus an entry in package.json.
@@ -9,7 +9,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseTools } from "./parse-tools.mjs";
 
-const root = fileURLToPath(new URL("..", import.meta.url));
+const repo = fileURLToPath(new URL("..", import.meta.url));
+const root = path.join(repo, "extension");
 const appRepo = path.resolve(process.argv[2] ?? "../devtools");
 const registryPath = path.join(appRepo, "src/app/toolRegistry.ts");
 const tools = parseTools(readFileSync(registryPath, "utf8"), registryPath);
@@ -47,5 +48,10 @@ pkg.commands = [
 writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`);
 
 // Match the repo's Prettier style so that ray lint passes after a sync.
-execFileSync("npx", ["prettier", "--write", toolsJson, pkgPath, path.join(srcDir, "tool-*.ts")], { stdio: "ignore" });
-console.log(`Wrote ${tools.length} tools: src/tools.json, ${tools.length} commands in package.json and src/tool-*.ts.`);
+execFileSync("npx", ["prettier", "--write", toolsJson, pkgPath, path.join(srcDir, "tool-*.ts")], {
+  cwd: repo,
+  stdio: "ignore",
+});
+console.log(
+  `Wrote ${tools.length} tools to extension/: src/tools.json, ${tools.length} commands in package.json and src/tool-*.ts.`,
+);
