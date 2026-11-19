@@ -55,3 +55,18 @@ export function parseTools(source, filename = "toolRegistry.ts") {
     };
   });
 }
+
+// Raycast's manifest schema allows at most 12 keywords per command, each at most 25 characters.
+const MAX_KEYWORDS = 12;
+const MAX_KEYWORD_LENGTH = 25;
+
+/**
+ * Picks the root-search keywords for one tool command. Keywords the command already had come first
+ * (when the app still lists them), so a sync never drops a search word that users rely on.
+ */
+export function commandKeywords(appKeywords, previousKeywords = []) {
+  const kept = previousKeywords.filter((keyword) => appKeywords.includes(keyword));
+  return [...new Set([...kept, ...appKeywords])]
+    .filter((keyword) => keyword.length <= MAX_KEYWORD_LENGTH)
+    .slice(0, MAX_KEYWORDS);
+}

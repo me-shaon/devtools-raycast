@@ -47,3 +47,13 @@ test("sync handles spaces and formatting, and leaves all outputs intact on incom
     rmSync(temporary, { recursive: true, force: true });
   }
 });
+
+test("command keywords keep earlier keywords first and fit Raycast's limits", async () => {
+  const { commandKeywords } = await import("./parse-tools.mjs");
+  const app = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "x".repeat(26)];
+  // Earlier keywords that the app still lists come first, then new app keywords in app order.
+  assert.deepEqual(commandKeywords(app, ["m", "n", "gone"]), ["m", "n", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]);
+  // At most 12 keywords, none longer than 25 characters, no duplicates.
+  assert.deepEqual(commandKeywords(["a", "a", "x".repeat(26)], []), ["a"]);
+  assert.equal(commandKeywords(app, []).length, 12);
+});

@@ -7,7 +7,7 @@ import { execFileSync } from "node:child_process";
 import { readFileSync, readdirSync, unlinkSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { parseTools } from "./parse-tools.mjs";
+import { commandKeywords, parseTools } from "./parse-tools.mjs";
 
 const repo = fileURLToPath(new URL("..", import.meta.url));
 const root = path.join(repo, "extension");
@@ -34,6 +34,7 @@ for (const tool of tools) {
 const pkgPath = path.join(root, "package.json");
 const pkg = JSON.parse(readFileSync(pkgPath, "utf8"));
 const fixed = pkg.commands.filter((command) => !command.name.startsWith("tool-"));
+const previous = new Map(pkg.commands.map((command) => [command.name, command.keywords ?? []]));
 pkg.commands = [
   ...fixed,
   ...tools.map((tool) => ({
@@ -42,7 +43,7 @@ pkg.commands = [
     subtitle: "DevTools",
     description: `Open ${tool.name} in DevTools.`,
     mode: "no-view",
-    keywords: tool.keywords.slice(0, 10),
+    keywords: commandKeywords(tool.keywords, previous.get(`tool-${tool.id}`)),
   })),
 ];
 writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`);
